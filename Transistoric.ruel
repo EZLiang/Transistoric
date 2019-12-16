@@ -1,0 +1,90 @@
+@NUTSHELL Transistoric
+0: dead
+1: wire
+2: tail
+3: head
+4: splitter
+5: splitter tail
+6: splitter head
+7: {Ng} semiconductor N
+8: semiconductor N tail
+9: semiconductor N charge
+10: semiconductor N head
+11: {Ps} semiconductor P
+12: semiconductor P tail
+13: semiconductor P charge
+14: semiconductor P head
+
+@TABLE
+neighborhood: vonNeumann
+states: 15
+symmetries: rotate4 reflect
+
+head = (3,6,10,14)
+tail = (2,5,8,12)
+wire = (1,4,Ng,Ps)
+shead = (10,14)
+scharge = (9,13)
+stail = (8,12)
+swire = (Ng,Ps)
+
+# logic 3-gate
+1,0,head,wire,wire;3
+1,0,head,head,wire;3
+
+# logic 4-gate
+1,head,wire,head,wire;3
+1,head,wire,wire,wire;3
+
+symmetries: permute
+
+# semiconductors
+
+swire,head,any,any,any;[0:(9,13)]
+tail,scharge,any,any,any;[0]
+
+## diode function
+Ng,13,--13~3;8
+9,Ps,any~3;10
+
+symmetries: rotate4 reflect
+
+13,any,any,8,any;Ps
+
+## slowdown function
+scharge,wire,0,wire,0;[0:shead]
+
+## transistor function
+
+Ps,9,any,any,any;14
+
+### PNP
+9,13,any,any,any;10
+13,10,any,1,any;Ps
+
+### T
+Ng,13,any,wire,any;10
+
+symmetries: permute
+
+# signal propagation
+wire,head,any,any,any;[0:head]
+head,any,any,any,any;[0:tail]
+tail,any,any,any,any;[0:wire]
+
+@COLORS
+000:0
+F80:1
+888:2
+FFF:3
+FF0:4
+FF5:5
+FFA:6
+00F:7
+44F:8
+88F:9
+CCF:10
+F00:11
+F44:12
+F88:13
+FCC:14
