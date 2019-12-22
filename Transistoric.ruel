@@ -61,7 +61,7 @@ Ps,9,any,any,any;14
 ### PNP
 9,13,any,any,any;10
 13,10,any,1,any;Ps
-10,13,any,any,any;9
+10,13,3,any,any;9
 9,3,any,any,any;8
 
 ### T
