@@ -28,15 +28,21 @@ scharge = (9,13)
 stail = (8,12)
 swire = (Ng,Ps)
 
-# logic 3-gate
+# logic
+
+## logic 3-gate
 1,0,head,wire,wire;3
 1,0,head,head,wire;3
 
-# logic 4-gate
+## logic 4-gate
 1,head,wire,head,wire;3
 1,head,wire,wire,wire;3
 
+## default
+
 symmetries: permute
+
+1,wire,wire,any,any;1
 
 # semiconductors
 
