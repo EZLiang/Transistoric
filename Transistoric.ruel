@@ -62,13 +62,17 @@ scharge,wire,0,wire,0;[0:shead]
 
 ## transistor function
 
-Ps,9,any,any,any;14
+Ps,9,any,any,any;13
 
 ### PNP
+Ng,3,any,any,any;9
 9,13,any,any,any;10
 13,10,any,1,any;Ps
 10,13,3,any,any;9
 9,3,any,any,any;8
+
+13,scharge,any,any,any;Ps
+13,any,any,any,any;14
 
 ### T
 Ng,13,any,wire,any;10
